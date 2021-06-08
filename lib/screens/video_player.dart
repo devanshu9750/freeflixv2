@@ -53,13 +53,8 @@ class _VideoPlayerState extends State<VideoPlayer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: AspectRatio(
-          aspectRatio: 16 / 9,
-          child: BetterPlayer(
-            controller: _betterPlayerController,
-          ),
-        ),
+      body: BetterPlayer(
+        controller: _betterPlayerController,
       ),
     );
   }

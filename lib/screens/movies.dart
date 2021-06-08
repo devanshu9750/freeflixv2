@@ -18,7 +18,7 @@ class _MoviesState extends State<Movies> {
     FirebaseDatabase.instance
         .reference()
         .child('movies')
-        .orderByChild('release')
+        .orderByChild('released')
         .onValue
         .listen((event) {
       setState(() {
@@ -51,7 +51,7 @@ class _MoviesState extends State<Movies> {
               child: Column(
                 children: [
                   CachedNetworkImage(
-                    imageUrl: movies[movies.keys.toList()[index]]['image'],
+                    imageUrl: movies[movies.keys.toList()[index]]['poster'],
                     placeholder: (context, url) =>
                         Center(child: CircularProgressIndicator()),
                   ),
@@ -61,7 +61,7 @@ class _MoviesState extends State<Movies> {
                   Padding(
                     padding: const EdgeInsets.only(left: 5, right: 5),
                     child: Text(
-                      movies[movies.keys.toList()[index]]['name'],
+                      movies[movies.keys.toList()[index]]['title'],
                       textAlign: TextAlign.center,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
